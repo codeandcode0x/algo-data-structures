@@ -14,7 +14,7 @@ import (
 )
 
 func main() {
-	result := DivString("1000000000000000000000000000000000000000000", 11)
+	result := DivString("70", 6)
 	fmt.Println(result)
 }
 
@@ -38,6 +38,10 @@ func DivString(char string, divisor int) string {
 		if k == len(char)-1 {
 			N = iNum / float64(divisor)
 			N = math.Floor(N * 100)
+			LastNum := int(math.Floor((iNum/float64(divisor))*1000)) % 10
+			if LastNum >= 5 {
+				N = N + 1
+			}
 			N = N / 100
 		}
 
